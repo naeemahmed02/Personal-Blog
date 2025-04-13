@@ -1,0 +1,25 @@
+<footer class="text-gray-600 body-font bg-white dark:bg-slate-900">
+    <div class="container px-4 py-6 mx-auto flex justify-between items-center">
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        © <span id="year"></span> Djangothings
+      </p>
+      <ul class="flex space-x-4">
+        <li>
+          <a href="privacy-policy.html" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100">
+            Privacy policy
+          </a>
+        </li>
+        <li>
+          <a href="terms-conditions.html" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100">
+            Terms and conditions
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  

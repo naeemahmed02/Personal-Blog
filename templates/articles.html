@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="dark:bg-slate-800 dark:text-gray-300">
+    <div class="content overflow-hidden">
+      <section class="text-gray-600 dark:text-gray-300 body-font">
+        <div class="container md:px-8 px-2 py-10 mx-auto">
+          <div class="flex flex-col text-center w-full py-10">
+            <h1 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+              All Articles
+            </h1>
+          </div>
+
+          <!-- Search -->
+          <div class="relative max-w-lg mx-auto mb-10">
+            <input
+              type="text"
+              placeholder="Search articles"
+              class="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-primary-500 focus:border-primary-500 dark:bg-slate-900 dark:text-gray-100"
+            />
+            <svg
+              class="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Articles -->
+          <div class="flex flex-wrap -m-4">
+            <div class="flex xl:max-w-4xl px-8 py-10 mx-auto flex-wrap -m-4">
+              <ul class="divide-y divide-gray-300 dark:divide-gray-600">
+                <!-- Article Item -->
+                <li class="py-12">
+                  <!-- Categories -->
+                  <a href="#">
+                    <span class="inline-block py-1 px-3 rounded bg-emerald-100 mb-3 text-emerald-500 dark:bg-slate-700 dark:text-gray-300 text-xs font-medium tracking-widest">Category 1</span>
+                  </a>
+                  <a href="#">
+                    <span class="inline-block py-1 px-3 rounded bg-emerald-100 mb-3 text-emerald-500 dark:bg-slate-700 dark:text-gray-300 text-xs font-medium tracking-widest">Category 2</span>
+                  </a>
+
+                  <!-- Title -->
+                  <h2 class="text-2xl font-bold leading-8 tracking-tight">
+                    <a class="text-gray-900 dark:text-gray-100" href="#">Sample Article Title</a>
+                  </h2>
+
+                  <!-- Excerpt -->
+                  <div class="mt-5">
+                    This is a short preview of the article content, limited to around 300 characters...
+                  </div>
+
+                  <!-- Read more and read time -->
+                  <div class="text-base font-medium mt-5 leading-6">
+                    <a class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" href="#">Read more →</a>
+                    <p class="text-sm float-right font-medium leading-6 text-gray-500 dark:text-gray-400">5 min read</p>
+                  </div>
+                </li>
+
+                <!-- Repeat the block above for more articles -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="flex justify-between items-center mt-16">
+            <!-- Previous Button -->
+            <button
+              class="flex items-center px-4 py-2 text-white bg-emerald-600 border-0 focus:outline-none hover:bg-emerald-500 rounded text-lg transition"
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+              Previous
+            </button>
+
+            <!-- Page Numbers -->
+            <div class="flex space-x-2">
+              <span class="px-4 py-2 text-white bg-emerald-600 rounded text-lg">1</span>
+              <button class="px-4 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded text-lg transition">2</button>
+              <button class="px-4 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded text-lg transition">3</button>
+            </div>
+
+            <!-- Next Button -->
+            <button
+              class="flex items-center px-4 py-2 text-white bg-emerald-600 border-0 focus:outline-none hover:bg-emerald-500 rounded text-lg transition"
+            >
+              Next
+              <svg
+                class="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
