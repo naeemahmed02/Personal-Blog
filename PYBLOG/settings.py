@@ -42,7 +42,12 @@ INSTALLED_APPS = [
     'core',
     'blog',
     'category',
-    'comments'
+    'comments',
+    'ckeditor',
+    'ckeditor_uploader',
+    'froala_editor',
+    'accounts',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +131,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -133,3 +140,132 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_UPLOAD_PATH = 'photos/uploads/'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+ARTICLE_PER_PAGE = 5
+
+FROALA_EDITOR_OPTIONS = {
+    'toolbarSticky': True,
+    'toolbarButtons': {
+        'moreText': {
+            'buttons': [
+                'bold', 'italic', 'underline', 'strikeThrough',
+                'subscript', 'superscript', 'fontFamily', 'fontSize',
+                'textColor', 'backgroundColor', 'clearFormatting'
+            ],
+            'buttonsVisible': 10
+        },
+        'moreParagraph': {
+            'buttons': [
+                'alignLeft', 'alignCenter', 'alignRight', 'alignJustify',
+                'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle',
+                'lineHeight', 'outdent', 'indent', 'quote'
+            ],
+            'buttonsVisible': 10
+        },
+        'moreRich': {
+            'buttons': [
+                'insertLink', 'insertImage', 'insertVideo', 'insertFile',
+                'insertTable', 'emoticons', 'specialCharacters', 'hr',
+                'embedly', 'insertHTML'
+            ],
+            'buttonsVisible': 10
+        },
+        'moreMisc': {
+            'buttons': [
+                'undo', 'redo', 'fullscreen', 'selectAll', 'html',
+                'codeView', 'help', 'print', 'getPDF', 'spellChecker',
+                'trackChanges', 'comment'
+            ],
+            'buttonsVisible': 10
+        }
+    },
+    'pluginsEnabled': [
+        'align', 'charCounter', 'codeBeautifier', 'codeView',
+        'colors', 'draggable', 'emoticons', 'entities', 'file',
+        'fontFamily', 'fontSize', 'fullscreen', 'image', 'imageManager',
+        'inlineStyle', 'inlineClass', 'lineBreaker', 'link', 'lists',
+        'paragraphFormat', 'paragraphStyle', 'print', 'quickInsert',
+        'quote', 'save', 'selectAll', 'specialCharacters', 'table',
+        'url', 'video', 'wordPaste', 'help', 'codeBlock',
+        'trackChanges', 'comment', 'markdown', 'embedly', 'getPDF', 'spellChecker'
+    ],
+    'codeMirror': True,
+    'codeMirrorOptions': {
+        'theme': 'monokai',
+        'mode': 'python',
+        'lineNumbers': True,
+        'lineWrapping': True,
+        'matchBrackets': True,
+        'autoCloseBrackets': True,
+    },
+    'spellcheck': True,
+    'language': 'en_us',
+    'placeholderText': 'Write your awesome content here...',
+    'heightMin': 500,
+    'heightMax': 1000,
+    'fontFamilySelection': True,
+    'fontSizeSelection': True,
+    'paragraphFormatSelection': True,
+    'quickInsertTags': ['image', 'video', 'table', 'ol', 'ul', 'hr'],
+    'imageUpload': True,
+    'videoUpload': True,
+    'tableInsertHelper': True,
+    'toolbarStickyOffset': 50,
+    'attribution': False,  # hide "Powered by Froala" if licensed
+    'saveInterval': 5000,  # autosave every 5 seconds (if configured)
+    'zIndex': 2005
+}
+
+
+
+
+# FROALA_EDITOR_OPTIONS = {
+#     'toolbarButtons': [
+#         'undo', 'redo', '|',
+#         'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|',
+#         'fontFamily', 'fontSize', 'textColor', 'backgroundColor', '|',
+#         'inlineClass', 'inlineStyle', '|',
+#         'paragraphFormat', 'paragraphStyle', '|',
+#         'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+#         'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|',
+#         'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|',
+#         'print', 'spellChecker', 'help', 'fullscreen', '|',
+#         'html', 'codeView', 'insertCodeBlock', 'save', 'preview'
+#     ],
+#     'toolbarButtonsXS': 'toolbarButtons',  # Same for mobile
+#     'pluginsEnabled': [
+#         'align', 'charCounter', 'codeBeautifier', 'codeView', 'colors', 'draggable',
+#         'emoticons', 'entities', 'file', 'fontFamily', 'fontSize', 'fullscreen', 'image',
+#         'imageManager', 'inlineClass', 'inlineStyle', 'lineBreaker', 'link', 'lists',
+#         'paragraphFormat', 'paragraphStyle', 'print', 'quickInsert', 'quote', 'save',
+#         'table', 'url', 'video', 'wordPaste', 'spellChecker', 'specialCharacters',
+#         'help', 'insertCodeBlock', 'selectAll'
+#     ],
+#     'codeMirror': True,
+#     'codeMirrorOptions': {
+#         'theme': 'monokai',
+#         'mode': 'htmlmixed',
+#         'lineNumbers': True,
+#         'indentWithTabs': True,
+#         'tabSize': 2
+#     },
+#     'imageUpload': True,
+#     'fileUpload': True,
+#     'videoUpload': True,
+#     'heightMin': 400,
+#     'heightMax': 800,
+#     'quickInsertTags': ['image', 'table', 'ol', 'ul', 'hr'],
+#     'fontFamilySelection': True,
+#     'fontSizeSelection': True,
+#     'spellcheck': True,
+#     'direction': 'auto',  # Auto-detect LTR/RTL
+#     'theme': 'gray',  # Other option: 'dark'
+#     'attribution': False,
+#     'placeholderText': 'Start writing your document here...'
+# }
+
+

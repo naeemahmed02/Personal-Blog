@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+   <!-- About Me Section -->
+<section class="bg-white dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-20">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+
+    <!-- Profile Image -->
+    <div class="lg:w-1/3 flex justify-center">
+      <img src="{% static 'images/profile.png' %}" alt="Naeem Ahmed" class="w-64 h-64 object-fill rounded-full shadow-lg">
+    </div>
+
+    <!-- Bio Content -->
+    <div class="lg:w-2/3 text-center lg:text-left">
+      <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">About Me</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+        I'm <strong>Your Name</strong>, a passionate Full Stack and Backend Developer specializing in building scalable REST APIs and cross-platform applications using Django. With a keen eye for detail and a commitment to clean, efficient code, I transform ideas into robust digital solutions.
+      </p>
+      <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+        Beyond coding, I enjoy sharing knowledge through writing and mentoring, aiming to contribute to the developer community. When I'm not at the keyboard, you might find me exploring new technologies or enjoying a good book.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <a href="/projects" class="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition">View Projects</a>
+        <a href="/articles" class="border border-emerald-600 text-emerald-600 px-6 py-2 rounded-lg hover:bg-emerald-50 transition">Read Articles</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

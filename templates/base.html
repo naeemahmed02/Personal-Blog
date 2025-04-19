@@ -1,21 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>{% block title %} Base {% endblock %}</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/codeblock.css' %}">
+  <!-- Highlight.js CSS Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
 </head>
 <body class="dark:bg-slate-800 dark:text-gray-300">
+
   {% block navbar %}
   {% include 'nav.html' %}
   {% endblock %}
 
   {% block content %}
-
   {% endblock %}
+
   {% include 'footer.html' %}
-  {% block footer %}
 
+  {% block footer %}
   {% endblock %}
+
+  <!-- Highlight.js JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+  <!-- Initialize Highlight.js -->
+  <script>
+    hljs.highlightAll();  // Automatically highlights all code blocks
+  </script>
 </body>
 </html>
