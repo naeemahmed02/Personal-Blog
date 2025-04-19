@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div class="flex flex-col items-center justify-center">
+        <a href="/" class="mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="10" ry="10" fill="#2F855A"/>
+                <text x="50%" y="54%" font-size="10" text-anchor="middle" dy=".3em" fill="#FFFFFF" font-family="Arial" font-weight="bold">NA</text>
+              </svg>
+        </a>
+        <h2 class="text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+      </div>
+      {% if messages %}
+      {% for message in messages %}
+      <div class="text-red-500 text-sm">{{ message }}</div>
+      {% endfor %}
+      {% endif %}
+    <form class="mt-8 space-y-6" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div class="mb-4">
+          <input id="email-address" name="email" type="email" autocomplete="email" required
+            class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
+            placeholder="Email address">
+        </div>
+        <div>
+          <input id="password" name="password" type="password" autocomplete="current-password" required
+            class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
+            placeholder="Password">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <input id="remember-me" name="remember_me" type="checkbox"
+            class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded">
+          <label for="remember-me" class="ml-2 block text-sm text-gray-900"> Remember me </label>
+        </div>
+
+        <div class="text-sm">
+          <a href="#" class="font-medium text-emerald-600 hover:text-emerald-500">Forgot your password?</a>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+          Sign in
+        </button>
+      </div>
+    </form>
+    <p class="mt-6 text-center text-sm text-gray-600">
+      Don't have an account?
+      <a href="{% url 'register' %}" class="font-medium text-emerald-600 hover:text-emerald-500">Sign Up</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

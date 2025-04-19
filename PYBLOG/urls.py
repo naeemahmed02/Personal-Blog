@@ -9,7 +9,8 @@ urlpatterns = [
     path('category/', include('category.urls')),
     path('blog/', include('blog.urls')),
     path('froala_editor/', include('froala_editor.urls')),
-    path('projects/', include('projects.urls'))
+    path('projects/', include('projects.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

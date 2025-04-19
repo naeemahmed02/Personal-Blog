@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'blog',
     'category',
     'comments',
-    'ckeditor',
-    'ckeditor_uploader',
     'froala_editor',
     'accounts',
     'projects',
