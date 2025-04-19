@@ -10,5 +10,9 @@ class Comments(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now= True)
 
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
+
     def __str__(self):
         return f"Comment by {self.user} on {self.post.title}"
