@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ot(^(zya8%mcwmgtkk(uw+=yfbh5g(f%h#b!y--+#3t00fv(bl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -33,12 +33,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Your local apps
     'core',
     'blog',
     'category',
@@ -46,7 +49,18 @@ INSTALLED_APPS = [
     'froala_editor',
     'accounts',
     'projects',
+    'tinymce',
+    'resume',
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = ['127.0.0.1']
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'PYBLOG.urls'
@@ -134,6 +149,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -144,6 +161,8 @@ CKEDITOR_UPLOAD_PATH = 'photos/uploads/'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ARTICLE_PER_PAGE = 5
+
+GRAPPELLI_ADMIN_TITLE = "Naeem Ahmed"
 
 FROALA_EDITOR_OPTIONS = {
     'toolbarSticky': True,

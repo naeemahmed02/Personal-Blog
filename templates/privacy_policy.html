@@ -21,7 +21,7 @@
                         <ul class="list-disc list-inside marker:text-white mt-8 text-lg font-semibold mx-10">
                             {% for item in toc %}
                             <li class="py-2">
-                                <a class="underline text-emerald-500 hover:text-emerald-400" href="#{{ item.id }}">
+                                <a class="underline text-orange-500 hover:text-orange-400" href="#{{ item.id }}">
                                     {{ item.title }}
                                 </a>
                             </li>
@@ -32,7 +32,7 @@
             </div>
 
             <!-- Article Content -->
-            <div class="article-content text-lg">
+            <div class="article-content text-lg prose">
                 <p>{{ content_with_ids | safe }}</p>
             </div>
         </div>

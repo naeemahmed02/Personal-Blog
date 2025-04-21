@@ -28,6 +28,7 @@ class CustomUser(AbstractUser):
     email = models.CharField(unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+    profile = models.ImageField(upload_to='photos/profiles', default='images/default_profile.png')
     date_joined = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False) # For admin access

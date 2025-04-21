@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}John Doe's Profile{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-12">
+  <!-- Profile Card -->
+  <div class="bg-white dark:bg-gray-900 shadow-2xl rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800">
+    
+    <!-- Header Image -->
+    <div class="relative h-48 bg-gradient-to-r from-orange-500 to-orange-700">
+      <div class="absolute -bottom-12 left-8">
+        <img src="{{ user.profile.url }}" alt="Profile Image"
+             class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-900 shadow-lg object-cover">
+      </div>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="pt-16 px-8 pb-10">
+      <div class="flex justify-between items-start flex-col sm:flex-row sm:items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
+            {{ user.get_full_name }}
+          </h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400">@{{ user.get_full_name }}</p>
+        </div>
+        {% if request.user.is_superuser %}
+        <a href="#" class="mt-4 sm:mt-0 inline-block bg-orange-600 hover:bg-orange-700 text-white text-sm px-4 py-2 rounded-lg transition duration-200">
+            Edit Profile
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Bio -->
+      <p class="mt-4 text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+        {{ user.description }}
+      </p>
+
+      <!-- Profile Info -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 text-gray-700 dark:text-gray-300 text-sm">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5.121 17.804A10.975 10.975 0 0112 15c2.2 0 4.243.636 5.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          {{ user.email }}
+        </div>
+
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3zM12 11c-4 0-7 2-7 5v3h14v-3c0-3-3-5-7-5z"/>
+          </svg>
+          Location: San Francisco, CA
+        </div>
+
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 4v1m0 14v1m8-8h1M3 12H2m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707"/>
+          </svg>
+          Website: <a href="https://johndoe.dev" class="text-orange-600 hover:underline" target="_blank">johndoe.dev</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 8c-1.1 0-2 .9-2 2m0 0c0 1.1.9 2 2 2m0 0c1.1 0 2-.9 2-2m0 0c0-1.1-.9-2-2-2m0 10c-4.418 0-8-1.79-8-4V9c0-2.21 3.582-4 8-4s8 1.79 8 4v5c0 2.21-3.582 4-8 4z"/>
+          </svg>
+          Member since: January 12, 2022
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

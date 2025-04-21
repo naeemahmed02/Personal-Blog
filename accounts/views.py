@@ -3,9 +3,14 @@ from django.contrib.auth import  authenticate, login, logout
 from django.contrib import messages
 from utils.utils import validate_passwords
 from . models import CustomUser
+from . decorators import already_login
 
 
+@already_login
 def login_page(request):
+
+    next_url = request.GET.get('next') or request.POST.get('next') or '/'
+
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -22,11 +27,12 @@ def login_page(request):
                 # request.session.set_expiry(86400)
                 request.session.set_expiry(60)
 
-            return redirect('home')
+            return redirect(next_url)
         else:
             messages.error(request, 'Invalid Email or Password')
-    return render(request, 'login.html')
+    return render(request, 'login.html', {'next': next_url})
 
+@already_login
 def register(request):
     if request.method == "POST":
         email = request.POST.get('email')
@@ -58,6 +64,7 @@ def register(request):
 def logout_page(request):
     logout(request)
     return redirect('login')
+
 
 
 

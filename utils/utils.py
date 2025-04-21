@@ -11,7 +11,7 @@ def generate_toc_and_content(html_content):
     soup = BeautifulSoup(html_content, 'lxml')
     toc = []
 
-    for tag in soup.find_all(['h2']):
+    for tag in soup.find_all(['h2', 'h3']):
         if not tag.get('id'):
             tag_id = slugify(tag.text)
             tag['id'] = tag_id

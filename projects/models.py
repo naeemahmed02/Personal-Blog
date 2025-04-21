@@ -6,6 +6,7 @@ class Project(models.Model):
     project_title = models.CharField(max_length=300, unique=True)
     project_description = FroalaField(blank=True, null=True)
     slug = models.SlugField(unique=True)
+    github_link = models.CharField(max_length=1000)
     category = models.ManyToManyField(ProjectsCategory, related_name='projects')
     featured_image = models.ImageField(upload_to='photos/project_category')
     created_date = models.DateTimeField(auto_now_add=True)

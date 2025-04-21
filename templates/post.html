@@ -33,7 +33,7 @@
               {% for item in toc %}
               <li class="py-2">
                 <a
-                  class="underline text-emerald-500 hover:text-emerald-400"
+                  class="underline text-orange-600 hover:text-orange-500"
                   href="#{{ item.id }}"
                 >
                   {{ item.title }}
@@ -68,14 +68,14 @@
         {% csrf_token %}
         <div class="flex items-start gap-4 mb-4">
           <div
-            class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xl font-bold"
+            class="w-12 h-12 rounded-full bg-orange-600 text-white flex items-center justify-center text-xl font-bold"
           >
             {{ request.user.first_name|default:"G"|first }}
           </div>
           <textarea
             placeholder="Write a comment..."
             name="comment"
-            class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
           ></textarea>
         </div>
         {% if messages %}
@@ -86,27 +86,18 @@
         <div class="flex justify-end">
           <button
             type="submit"
-            class="inline-flex items-center text-white bg-emerald-600 border-0 py-2 px-6 rounded-lg hover:bg-emerald-700 transition-colors text-lg"
-          >
+            class="inline-flex items-center text-white bg-orange-600 border-0 py-1 px-6 rounded-lg hover:bg-orange-700 transition-colors text-lg">
             Comment
           </button>
         </div>
       </form>
     </div>
-    {% else %}
-    <div class="text-center mt-6 mb-6">
-      <a
-        href="{% url 'login' %}"
-        class="text-emerald-500 hover:text-emerald-400 font-semibold text-lg py-4"
-        >Load Comments</a
-      >
-    </div>
-    {% endif %} {% for comment in single_post.comments.all %}
+    {% for comment in single_post.comments.all %}
 
     <div class="max-w-full p-4 bg-white rounded-lg shadow-sm">
       <div class="flex items-start space-x-3">
         <!-- User avatar -->
-        <div class="flex-shrink-0 w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-sm font-bold text-white">
+        <div class="flex-shrink-0 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-sm font-bold text-white">
             {{ comment.user.first_name|first }}
           </div>
           
@@ -127,20 +118,19 @@
           <p class="mt-1 text-sm text-gray-700">
             {{ comment.comment_field|striptags }}
           </p>
-
-          <!-- Action buttons -->
-          <div class="flex items-center mt-3 space-x-4 text-xs text-gray-500">
-            {% if request.user_is_authenticated %}
-            <!-- Edit Button -->
-            <button class="hover:text-gray-700">Edit</button>
-            {% endif %}
-            <!-- Reply Button -->
-            <button class="hover:text-gray-700">Reply</button>
-          </div>
         </div>
       </div>
     </div>
     {% endfor %}
+    {% else %}
+    <div class="text-center mt-6 mb-6">
+      <a
+        href="{% url 'login' %}?next={{ request.path }}"
+        class="text-orange-600 hover:text-orange-500 font-semibold text-lg py-4">Load Comments</a>
+    </div>
+    {% endif %} 
+    
+    
   </div>
 </div>
 
